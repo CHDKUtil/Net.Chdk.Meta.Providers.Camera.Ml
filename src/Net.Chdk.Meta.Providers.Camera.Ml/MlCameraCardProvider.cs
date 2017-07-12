@@ -2,7 +2,7 @@
 
 namespace Net.Chdk.Meta.Providers.Camera.Ml
 {
-    sealed class MlCardProvider : EosCardProvider
+    sealed class MlCameraCardProvider : EosCameraCardProvider
     {
         protected override string GetCardType(uint modelId) => "SD";
     }

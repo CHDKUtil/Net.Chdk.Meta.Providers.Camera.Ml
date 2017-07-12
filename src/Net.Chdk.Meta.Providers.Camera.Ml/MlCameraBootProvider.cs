@@ -1,6 +1,6 @@
 ﻿namespace Net.Chdk.Meta.Providers.Camera.Ml
 {
-    sealed class MlBootProvider : BootProvider
+    sealed class MlCameraBootProvider : CameraBootProvider
     {
         protected override string GetBootFileSystem(uint modelId) => "exFAT";
     }

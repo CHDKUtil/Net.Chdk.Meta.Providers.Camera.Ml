@@ -8,8 +8,8 @@ namespace Net.Chdk.Meta.Providers.Camera.Ml
         public static IServiceCollection AddMlProviders(this IServiceCollection serviceCollection)
         {
             return serviceCollection
-                .AddSingleton<IBootProvider, MlBootProvider>()
-                .AddSingleton<IEosCardProvider, MlCardProvider>();
+                .AddSingleton<ICameraBootProvider, MlCameraBootProvider>()
+                .AddSingleton<IEosCameraCardProvider, MlCameraCardProvider>();
         }
     }
 }
