@@ -1,16 +1,18 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Net.Chdk.Meta.Providers.Camera.Eos;
+using Net.Chdk.Meta.Model.Camera.Eos;
 
 namespace Net.Chdk.Meta.Providers.Camera.Ml
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddMlProviders(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddMlCameraProviders(this IServiceCollection serviceCollection)
         {
             return serviceCollection
-                .AddEosCameraProviders()
-                .AddSingleton<ICameraBootProvider, MlCameraBootProvider>()
-                .AddSingleton<IEosCameraCardProvider, MlCameraCardProvider>();
+                .AddSingleton<IProductCameraPlatformProvider, MlCameraPlatformProvider>()
+                .AddSingleton<IProductCameraBootProvider, MlCameraBootProvider>()
+                .AddSingleton<IProductCameraCardProvider<EosCardData>, MlCameraCardProvider>()
+                .AddSingleton<IProductCameraValidator, MlCameraValidator>()
+                .AddSingleton<IProductCameraModelValidator, MlCameraModelValidator>();
         }
     }
 }
